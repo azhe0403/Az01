@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            padding: 0px 10px;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            background-color: rgba(0,0,0,.8);
+            position: fixed;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        #wrap>a{
+            display: inline-block;
+            color: white;
+            width: 2.1%;
+            text-decoration:none;
+        }
+        #wrap>a:hover{
+            color: red;
+        }
+        #one{
+            display: flex;
+            justify-content: space-between;
+            /*border: 1px solid;*/
+            padding-top: 80px;
+            flex-wrap:wrap;
+        }
+        #one>div{
+            width: 370px;
+            margin: 10px 10px;
+            padding: 50px 20px;
+        }
+        #one>div>h2{
+            margin-left: 10px;
+
+        }
+        #one>div>p{
+            margin-left: 40px;
+            margin-top: 10px;
+        }
+        #one>div>p>b{
+            /*margin: 50px;*/
+            color: green;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+</div>
+<div id="one"></div>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    // 随机色
+    function rn() {
+            var r = Math.round(Math.random()*100+100);
+            var g = Math.round(Math.random()*100+100);
+            var b= Math.round(Math.random()*100+100);
+            return "rgba("+r+","+g+","+b+","+.5+")";
+
+        }
+
+    for(var i=1;i<=46;i++){
+        $("<a></a>").html(i).attr("href","#"+i).appendTo("#wrap");
+        $("<div></div>").attr("id",i).css("background-color",rn()).appendTo("#one")
+    }
+
+    $("#1").html(`
+            <h2>1.如何理解标签语义化？</h2>
+            <p>答:<b>例如我们经常应用的语义化标签 </b><br>
+                H1-h6     标题内容    <br>
+                H1-h6     标题内容  <br>
+                P         段落   <br>
+                Ul        无序  <br>
+                Ol        有序 <br>
+                Dl        定义列表  <br>
+                Thead     表格中的表头内容 <br>
+                Tbody     表格中的主体内容 <br>
+
+          <b>HTML5中也新增加许多的语义化标签</b> <br>
+                Header    section或者page的页眉 <br>
+                Nav       导航栏 <br>
+                Footer    section或者page的页脚 <br>
+                Progress  进度条 <br>
+                Video     视频 <br>
+</p>
+            <p><b>标签语义化的主要目的</b>:简单来说，就是让标签有含义，给某块内容用上一个最恰当最合适的标签，使页面有良好的结构，页面元素有含义，不论是谁都能够看懂这块内容是什么，并且有利于搜索引擎。</p>
+            <p> <b>标签语义化的好处：</b>1.  HTML结构清晰
+        2.  代码可读性较好
+        3.  无障碍阅读
+        4.  搜索引擎可以根据标签的语言确定上下文和权重问题
+        5.  移动设备能够更完美的展现网页（对css支持较弱的设备）
+        6.  便于团队维护和开发
+</p>
+    `);
+
+    $("#2").html(`
+     <h2>2.HTML5新增标签及使用？</h2>
+     <p>答: <b>布局页面时用的语义标签：</b><br>
+                Header    section或者page的页眉 <br>
+                Nav       导航栏 <br>
+                Footer    section或者page的页脚 <br>
+                Progress  进度条 <br>
+                Video     视频 <br></p>
+         <p><b>input其他的类型：</b>
+                    1. text 文本输入框
+                    2. password 密码
+                    3. button 按钮
+                    4. checkbox 复选
+                    5. radio 单选
+                    6. submit 提交
+                    7. reset 重置
+                    8. file 文件
+                    9. email 输入邮箱地址 检测@
+                    10. url URL地址
+                    11. number 只能输入数字 还有e
+                    12. range 范围 默认0~100
+                    required 必须填写
+                    placeholder 占位符
+            </p>
+            <p><b>功能标签：</b>1:video : autoplay自动播放 controls控制播放 loop是否重复播放 preload是否自动加载>定义视频 2:canvas:定义图形提供画布</p>
+  `);
+
+    $("#3").html(`
+        <h2>3.如何创建锚点？</h2>
+         <p>答: 锚点是文档中某行的一个记号，类似于书签，用于链接到文档中的某个位置。当定义了锚点后，我们可以创建直接跳至该锚点（比如页面中某个小节）的链接，这样使用者就无需不停地滚动页面来寻找他们需要的信息了。 在使用a元素创建锚点时，需要使用 name 属性为其命名，代码如下所示a name=”anchorname1”,在用a标签的herf属性跳转到锚点</p>
+
+    `);
+    $("#4").html(`
+        <h2>4.标签分类，以及各自特点？</h2>
+
+         <p>答: <br><b>行标签</b><br>可以同行显示，只支持左右margin,不支持上下margin，宽高由内容撑开，不可以自定义宽高。</p>
+         <p> <b>块标签</b><br>独占一行，支持四周的margin,可以自定义宽高。。</p>
+         <p> <b>内联块标签</b><br>可以同行显示，默认宽高由内容撑开，支持四周margin，可以自定义宽高。</p>
+    `);
+    $("#5").html(`
+        <h2>5.三种定位的使用</h2>
+         <p>答: <b>相对定位 - relative:</b><br>保留当前位置，其他标签无法占用。在自身的位置进行定位。提高层级，就算定位在父标签的外面，父标签也不会失去高度。</p>
+         <p><b> 绝对定位 - absolute </b><br>失去当前位置，其他标签可以占用位置，需要依靠定位父级来定义，提高层级，脱离文档流。始终以定位父级的原点作为定位标准。</p>
+          <p><b>固定定位 - fixed:</b><br>失去当前位置，始终以浏览器的原点作为定位标准，文档高度超出浏览器可视窗口时，会生成滚动条，但固定定位标准不会因为页面但滚动而发生变化，提高层级，脱离文档流</p>
+    `);
+    $("#6").html(`
+        <h2>6.display和visibility属性的作用和区别？</h2>
+         <p>答:都可以将标签隐藏；<br> <b> display:</b>隐藏后，不在文档中占有位置；</p>
+         <p><b>visibility:</b>隐藏后，在文档中占有位置；</p>
+    `);
+    $("#7").html(`
+        <h2>7.简述盒模型？怪异盒模型？</h2>
+         <p>答: <b>盒模型：</b>网页中的标签都是矩形的，所以可以看作是一个盒子，称为盒模型；</p>
+         <p><b>标准盒模型：</b>width、height只包含content内容区</p>
+         <p><b>怪异盒模型：</b>width、height包含content、padding、border</p>
+    `);
+    $("#8").html(`
+        <h2> 8.如何设置一个div水平居中？如何设置一个浮动元素水平居中？</h2>
+         <p>答: 1）给父级设置display = flex;<br>
+         2）设置margin:0 auto;<br>
+         3)给标签也设置浮动<br>
+         4)给浮动标签添加一个同宽同高，给父标签设置margin-left:50%,浮动标签margin-left:-50%<br>
+         5)给浮动标签添加一个同宽同高,给父标签设置margin:0 auto;<br>
+         6)
+         </p>
+
+    `);
+    $("#9").html(`
+        <h2>9.简述精力图（雪碧图，css sprites）?</h2>
+         <p>答: 将许多小的图融合在一张图片中，使用背景图的定位。而且加载时只需要发一次请求，就会得到许多的图，减轻服务器压力，页面在加载时也会很快。</p>
+    `);
+    $("#10").html(`
+        <h2>10.过渡与动画的使用和区别？</h2>
+         <p>答: <b>过渡的属性名:</b><br>transition-将一个标签的变化过程以平缓的方式表现出来；但是过渡需要有一个触发机制，必须当标签的样式发生变化才有效果。</p>
+         <p><b>动画的属性名:</b>animation-动画和过渡不同的是，动画不需要触发机制，动画绑定完成后，代码运行后自动播放。动画可以绑定多个过程，可以设置循环次数。<br>但是动画需要绑定关键帧@keyframs,可以同时为多个标签绑定用一个关键帧，动画播放的持续时间必须要有，默认是0，不设置，动画不会播放</p>
+    `);
+
+    $("#11").html(`
+        <h2> 11.说说浮动？</h2>
+         <p>答: <b>1.什么是浮动？</b><br> float样式表示浮动，浮动的出现初衷是为了实现文字包围图片的效果，但现在更多的使用浮动来进行网页布局。</p>
+         <p><b>2.浮动的作用！？</b><br> 可以设置了浮动的标签向上漂浮，然后向着指定的方向移动，直到碰到父标签或者同样设置了浮动的边框才会停止。</p>
+         <p> <b>3.浮动的特点:</b><br>
+		     1.会向着指定方向移动，直到碰到父标签或其他设置浮动标签的边框才会停。<br>
+		     2.可以使块标签同行显示。并且标签中没有间隙，也不用向inline-block一样考虑对齐方式（基线对齐）<br>
+		     3.设置了浮动的标签在父标签中是不占据位置的。<br>
+		     4.当浮动标签因为层级提高遮挡了其他标签的时候，被遮挡标签的内容会显示中标签外。<br>
+
+1.浮动可以使行标签设置宽高，并且支持上下的margin<br>
+			    2.不管浮动之前标签的宽高是如何得来的，浮动后，只要没有设置固定的宽高，都是➡由内容撑开<br>
+
+
+			    注意所有标签都可以浮动但是浮动后的标签display属性都会被设置成block,并且在父标签中占据的空间不在是一行，而是只有盒模型大小</p>
+			    <p><b>浮动带来的影响：</b>父级坍塌，子标签设计浮动后在父标签中将不占位置，那么原本应该由子标签高度撑开父标签的高度，父标签高度丢失。</p>
+			    <p><b>解决办法：</b><br>1.给父标签设置高度，缺点：写成固定高度，当标签内容增加或减少时，都需要重新计算设置高度，很不灵；<br>
+		        2.给父标签也设置浮动属性，缺点：解决了当前父标签高度坍塌的问题，但是父标签的父标签又面临高度坍塌的问题，需要一直向外层父标签添加浮动；<br>
+
+		        3.给父标签添加overflow属性赋值hidden,目前使用相对较多的方法。<br>
+
+		        4.给浮动标签后面，添加赋值空的块标签，并设置clear:both;属性。 缺点：当页面标签较多的时候，会出现大量的空白块标签，增加代码阅读难度，不利于维护。<br>
+
+
+		        5.通过after伪元素来消除浮动带来的影响，是现在主流的清除浮动影响的解决办法。<br>
+
+                    #wrap::after{<br>
+                            /*内容*/<br>
+                            content: "";<br>
+                            /*块标签*/<br>
+                            display: block;<br>
+                            /*清除浮动*/<br>
+                            clear: both;<br>
+                        }
+
+</p>
+    `);
+    $("#12").html(`
+        <h2> 12.兼容css3新属性各个，浏览器前缀？</h2>
+         <p>答: 谷歌和苹果上（chrome Safari） -webkit- <br>
+            火狐（Firefox）-moz-<br>
+            欧朋（Opera）-o-<br>
+            IE浏览器（IE）-ms-</p>
+    `);
+    $("#13").html(`
+        <h2> 13.margin和padding使用？</h2>
+         <p>答: <b>.margin:</b>用来调整兄弟标签,margin是盒子的外边距，即盒子与盒子之间的距离，margin是用来隔开元素与元素的间距</p>
+         <p><b>padding:</b>adding用来调整父子标签,padding是内边距，是盒子的边与盒子内部元素的距离,padding用于元素与内容之间的间隔</p>
+         <p><b>特点:</b>竖直方向上会出现margin值叠加情况，此时margin的取值方式是取上下两个元素之间较大的margin值；</p>
+         <p><b>E6在满足以下四个条件的情况下会触发横向的双倍边距：</b>1）元素是浮动的（2）元素必须要有横向的margin（3）元素必须是块元素|（4）浏览器是ie6</p>
+    `);
+    $("#14").html(`
+        <h2>14.媒体查询？移动端viewport？</h2>
+         <p>答: <b>viewport:</b>可以理解为移动设备上浏览器的视窗（虚拟视窗），viewport视窗大小可以大于移动设备屏幕尺寸，也可以小于移动设备尺寸，可以自定义设置，通常情况下会设置为与移动设备屏幕同宽。</p>
+         <p><b>语法:</b>在head 标签内的meta中声明设置viewport</p>
+
+         <p><b>媒体查询:</b>相应式布局，使网页在不同尺寸屏幕上显示不同更合适的样式需要使用的技术称为媒体查询</p>
+         <p><b>语法:</b> <br>@media only/not mediaType and (条件){ <br>
+
+				符合条件时候需要显示的样式 <br>
+		}</p>
+    `);
+    $("#15").html(`
+        <h2>15.为所以字符串添加一个去除首尾空格的方法？</h2>
+         <p>答: <b>1,使用原生的字符串trim方法</b><br>
+         var str = "   ss  "; <br>
+            str.trim();
+</p>
+<p><b>2,使用正则表达式将空白字符串替换成空字符串</b><br>str.replace (/^\\s*|\\s*$/g,'');</p>
+<p><b>3,js方法</b><br>String.prototype.sw=function(){<br>
+            //找到空格<br>
+           var res = /^\\s+|\\s+$/g;<br>
+            console.log(this);<br>
+            //替换空格<br>
+           return this.replace(res,"");<br>
+       }<br>
+
+   console.log(str.sw());</p>
+    `);
+    $("#16").html(`
+        <h2> 16.js中的数据类型</h2>
+         <p>答: var a = []; <br>
+		var b = a; <br>
+		b[0] = 1; <br>
+		console.log(a[0]);<b>1</b> <br>
+		console.log(b[0]);<b>1</b> <br>
+		console.log(a===b);<b>true</b></p>
+    `);
+    $("#17").html(`
+        <h2>17.js中的作用域</h2>
+         <p>答: <b>作用域：</b><br>简单理解为起作用的区域
+		函数内和函数外，函数外的代码会随着网页在浏览器加载自动的从上到下逐行执行，而函数内代码不会自动执行
+		</br><b>函数外</b>：全局作用域。<b>函数内：</b>局部作用域 <br>
+		全局作用域内声明的变量称为全局变量，局部作用域声明的变量称为局部变量。<br>
+		<b>全局变量：</b>可以在脚本的任何地方访问使用；而局部变量只能在自己所处的局部作用域访问使用 <br>
+		//(局部变量在函数运行后会被自动销毁) <br>
+		//当全局变量与局部变量重名时，存在就近原则； <br>
+		//JS存在变量提升的现象，会将变量的声明提升到当前所有作用域的最顶端</p>
+    `);
+    $("#18").html(`
+        <h2>18.JS中声明函数的几种方法？</h2>
+        <p>答: <b>一共有3中方法</b></p>
+         <p><b> 1）函数声明方式</b><br>function sum (); 调用：sum()</p>
+         <p><b> 2)函数表达式声明</b><br> var add = function(){}; 调用：add();</p>
+         <p><b>3)使用Function构造函数</b><br> var add2 = new Function();调用：add2();</p>
+
+
+    `);
+
+    $("#19").html(`
+        <h2> 19.排序算法？</h2>
+        <p>答: <b> 1)冒泡排序:</b><br>从头到尾,比较相邻的两个元素的大小,如果符合交换条件,交换两个元素的位置。每一轮比较中,都会选出一个最大的数，放在正确的位置</p>
+         <p>答: <b> 2)选择排序:</b><br>从小到大排序：通过比较首先选出最小的数放在第一个位置上，然后在其余的数中选出次小数放在第二个位置上,依此类推,直到所有的数成为有序序列。</p>
+    `);
+    $("#20").html(`
+        <h2>20:闭包？</h2>
+         <p>答: <b>闭包:</b> <br>在函数外调用函数内的函数，内层函数可以使用外层函数内声明的变量，形成的闭合环境称为闭包。<br>
+		<b>闭包存在的问题就是</b><br>会使外层函数声明的变量会长期驻扎在内存中不会自动销毁，如果闭包数量过大，内存会被占。</p>
+    `);
+    $("#21").html(`
+        <h2> 21.简述JS中创建对象的几种方式？</h2>
+         <p>答: 1）字面量创建 var obj={} <br>
+			2）通过系统提供的构造函数创建<br>
+			3）自定义函数创建 var obj = new Object();</p>
+    `);
+    $("#22").html(`
+        <h2>22.this关键字？</h2>
+        <p>答: 根据函数的调用方式不同，this的指向也不同；<br>
+		以函数的形式调用，永远都是widows；<br>
+		以方法的形式调用，指的就是那个对象。</p>
+    `);
+    $("#23").html(`
+        <h2>23.原型、原型链?</h2>
+        <p>答: <b>原型:</b>就是prototype属性，可以通过原型为函数扩充方法和属性。</p>
+        <p><b>原型链:</b>原型链产生的必要条件就是要存在继承，每个原型链都有_proto_;</p>
+
+    `);
+    $("#24").html(`
+        <h2> 24.简述JS中的继承？</h2>
+        <p>答: <b>1）构造继承</b><br>.call(),apply()</p>
+        <p><b>缺点:</b>不能让子类的原型与父类的原型产生任何联系</p>
+         <p><b>2）原型继承（引用继承）</b> <br>Animal.prototype = Dog.prototype;</p>
+         <p><b>缺点:</b>会将子类原型变为父类原型，所以，我们对子类原型在进行操作的时候，会影响父类，这不合理</p>
+          <p><b>3）拷贝继承</b> <br>for(var x in Animal.prototype){ <br>
+        if(!Dog.prototype[x]){ <br>
+            Dog.prototype[x] = Animal.prototype[x]; <br>
+        }
+
+    }</p>
+         <p><b>缺点:</b>父类原型在添加新的属性和方法，子类无法自动继承获得，需要再一次便利添加。</p>
+           <p><b>4）将子类原型指向父类的实例对象</b> <br>Dog.prototype = new Animal(); <br>
+    Dog.prototype.constructor = Dog;</p>
+    `);
+    $("#25").html(`
+        <h2>25.简述DOM操作中查找获取元素的方法？</h2>
+        <p>答:Document.getElementById() <br>
+			Document.getElementsByTagName()<br>
+			Document.getElementsClassName()<br>
+			Document.getElementsByName()<br>
+			Document.querySelector()<br>
+			Document.querySelectorAll()</p>
+    `);
+    $("#26").html(`
+        <h2>26.为一个div元素绑定一个点击事件的方法？？</h2>
+        <p>答: <b>有四种方法:</b><br>1）可以使用DOM div.onclick 一级绑定 <br>2）使用DOM addEventListener('click',function(){}) 二级绑定 <br>ie9以下 <br>
+			attachEvent("onclick") <br>
+			detachEvent("onclick")必须用非匿名函数来移出 <br>3）使用jQ方法.on('click',function(){}) 为元素绑定点击事件 <br>4）jQ方法 .click(function(){});</p>
+    `);
+
+    $("#27").html(`
+        <h2> 27.浏览器嗅探？</h2>
+        <p>答: 就是用来检测用户现在用什么浏览器打开，是在手机端还是PC端，该发那个类型的文件 <br>
+		navigator.userAgent ->1.判断浏览器类型 2.判断代码执行的设备类型</p>
+    `);
+    $("#28").html(`
+        <h2> 28.什么是事件冒泡？什么是事件捕获？</h2>
+        <p>答: <b>事件冒泡</b><br>事件由子元素传递到父元素的过程，叫做冒泡</p>
+        <p><b>捕获事件</b><br>事件由父元素到子元素传递的过程，叫做事件捕获</p>
+        <p><b>(3)阻止捕获的方法</b><br>stopPropagation()方法既可以阻止事件冒泡，也可以阻止事件捕获，也可以阻止处于目标阶段。<br>
+无论事件流中只有捕获还是事件流中只有冒泡，还是说是事件流中既有捕获还有冒泡，event.stopPropagation()都可以阻止事件流的传播顺序。只要是event.stopPropagation()加在哪里，则到哪里就停止运行，停止捕获或者停止冒泡，简单说是，仍然按照正常的混合机制流程走，只是哪里有event.stopPropagation()则这个流程到哪里就停止了。</p>
+    `);
+
+    $("#29").html(`
+        <h2> 29.如何阻止事件冒泡、默认事件？</h2>
+        <p>答: <b>stopPropagation()，阻止事件冒泡 </b><br>例子：父子标签同时绑定相同都事件，触发事件明确的时候</p>
+        <p><b>preventDefault();阻止默认事件</b><br>例子：如右键菜单</p>
+
+    `);
+    $("#30").html(`
+        <h2>30.页面跳转的方式有哪些？</h2>
+        <p>答: <b>有三种:</b><br>1.a标签的herf属性; <br>2.window.open('http://www.baidu.com');
+	<br>3.loaction的herf属性;</p>
+    `);
+    $("#31").html(`
+        <h2>31.cookie、本地存储、会话存储的区别？</h2>
+        <p>答: <b>cookie:</b>作为浏览器提供的一种机制，我们可以将一些数据存储在浏览上，存储的数据格式是String，存储一些安全要求不是特别高的数据，容量在4kb左右，有生命周期。</p>
+        <p><b>本地存储 localStorage:</b>是存储在浏览器上的一个对象，大小为4MB，没有条数限制，不需要服务器环境，没有时效性，存储后一直存储在浏览器内，直到手动删除。</p>
+        <p><b>会话存储 sessionStorage：</b>生命周期为从存储信息到当前会话结束(当前窗口关闭)</p>
+    `);
+    $("#32").html(`
+        <h2> 32.JQ中的ready方法和window对象的load方法有何区别？</h2>
+        <p>答: <b>jQ:</b>jQ中的是等所有的DOM元素加载完成后运行其中的代码</p>
+        <p><b>window:</b>window的load是等页面资源加载完成后运行其中的代码</p>
+    `);
+    $("#33").html(`
+        <h2>33.简述你对ajax的理解？原生ajax的流程</h2>
+        <p>答: <b>理解:</b>是用来请求数据的；是异步请求，可以实现网页的局部刷新；</p>
+        <p><b>流程:</b>function ajax(options){ <br>
+	 <b>//创建请求对象</b><br>
+	var xhr = window.XMLHttpRequest? new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP");<br>
+	<b>//判断请求类型</b><br>
+	options.type=options.type?options.type:"GET";<br>
+	options.type=options.type.toUpperCase();<br>
+	<b>//判断同步异步,默认异步</b><br>
+	options.async=options.async?options.async:"true";<br>
+	<b>//处理url</b><br>
+	if (options.data&&options.type=="GET") {<br>
+		options.url += ("?" + options.data);<br>
+		// statement<br>
+	}<br>
+
+	<b>//准备请求</b><br>
+	xhr.open(options.type,options.url,options.async);<br>
+	<b>//发送请求</b><br>
+	if(options.type=="GET"){<br>
+		xhr.send();<br>
+	}else {<br>
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")<br>
+		options.data?xhr.send(options.data):xhr.send();<br>
+	}<br>
+	<b>//请求监听</b><br>
+	xhr.onreadystatechange=function  () {<br>
+	//xhr.readyState==0(未准备也未发送)1（已准备未发送）2（以准备以发送未返回）3（以准备以发送以返回）4（发送成功）<br>
+	//xhr.status==200 404(url有问题) 500（服务器有问题）<br>
+		if(xhr.readyState==4&&xhr.status==200){<br>
+			<b>//请求成功</b><br>
+			<b>//安全判断</b><br>
+			if (options.success) {<br>
+				options.success(xhr.responseText);<br>
+
+			}<br>
+
+		}<br>
+
+	}
+
+
+
+}</p>
+    `);
+    $("#34").html(`
+        <h2>34.数组和字符串操作方法？</h2>
+        <p>答: <b>数组</b><br>array: shift(),<br>unshift(),<br>splice(),<br>indexOf(),<br>push(末尾增加),<br>pop(删除末尾),<br>concat(),<br>join(转化),<br>slice(),<br>reverce(),<br>sort()</p>
+        <p><b>字符串</b><br>string: split(转化),<br>substring(截取下标，截取下标),<br>substr(截取下标，截取到长度),<br>indexOf(),<br>toUpperCase(转化为大写),<br>toLowerCase(转小写),<br>match(),<br>search()</p>
+    `);
+    $("#35").html(`
+        <h2>35.同步和异步？</h2>
+        <p>答:同步：同一时间只能触发一个事件 <br>
+			异步：同一时间可以触发多个事件(例如：接电话和收短信)</p>
+    `);
+    $("#36").html(`
+        <h2>	36.跨域？</h2>
+        <p>答: <b>跨域:</b>指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器对javascript施加的安全限制。所谓同源是指"协议(http://https://)+域名(www.baidu.com localhost)+端口(localhost:8080)"三者相同，即便两个不同的域名指向同一个ip地址，也非同源。</p>
+        <p><b>解决跨域问题:</b><br><b>(1)项目开发过程解决跨域（后端设置响应头）；</b><br>
+	请求类型 Restful API PUT DELET POST GET<br><b>问题:</b>兼容性问题 <br><b>(2)JSONP</b><br><b>前端：</b>利用script标签的src属性不受同源策略限制来发送,发送请求中携带定义好的处理函数名称callback = 函数名 <br> <b>后端:</b>返回一个由前端指定的回调函数包裹的json数据 <br> <b>优点:</b>没有兼容问题 <br><b>缺点:</b>只能发get请求 参数是拼接在url后面的 <br>
+					实际使用：建议用JQ <br>$.ajax({
+						url
+						dataType:"JSONP"
+						success:function(res){
+							console.log(res);
+						}
+					});<br><b>(3)服务器代理解决跨域请求</b><br>服务器之间的请求不受同源策略限制 <br>
+					<b>解决思路：</b>(你->你后台->别人的后台->你的后台->你)
+						同源的前端请求同源的服务器，由该服务器转发请求给目标服务器，返回数据后，转发给前端
+						在php中通过curl转发请求</p>
+    `);
+    $("#37").html(`
+        <h2>37.JS实现鼠标拖拽的原理？</h2>
+        <p>答: <b>PC端:</b>首先是鼠标按下（mousedown事件），然后移动（mousemove事件），最后释放鼠标（mouseup事件）首先要设置一个变量记录鼠标是否按下，在鼠标按下的时候，我们做一个标记，然后需要记录一下鼠标当前的坐标，还有这个div当前的偏移量，当鼠标开始移动的时候，记录下鼠标当前的坐标，用鼠标当前的坐标减去鼠标按下时的坐标再加上鼠标按下时div的偏移量就是现在div距离父辈元素的距离，当鼠标释放的时候将标记改为鼠标已经释放。<br>cur.x = event.clientX;   //记录当前鼠标的x坐标 <br>
+    cur.y = event.clientY;   //记录当前鼠标的y坐标 <br>
+    dx = div2.offsetLeft;    //记录div当时的左偏移量 <br>
+    dy = div2.offsetTop;     //记录div的上偏移量</p>
+    <p><b>移动端:</b>首先是事件不同，只需要在添加移动端的touchatart、touchmove、touchend就可以了，还有一个不同的时移动端获取坐标是event.touches[0].clientX和event.touches[0].clientY </p>
+    `);
+    $("#38").html(`
+        <h2>38.写一个倒计时，现在距离2020年1月1日0点0分0秒还有多少天多少小时多少分多少秒？</h2>
+        <p>答: <b> 获取本地当前时间，截止时间 - 当前时间 = 倒计时时间 <br></b>
+        var endDate = new Date(2020,1,1,0,0);<br>
+        var leftTime = ( endDate - (new Date()); //计算剩余的毫秒数 截止时间 - 当前时间<br>
+        var days = parseInt(leftTime / 1000 / 60 / 60 / 24); //计算剩余的天数 ;<br>
+         var hours = parseInt(leftTime / 1000 / 60 / 60 % 24 ); //计算剩余的小时 <br>
+        var minutes = parseInt(leftTime / 1000 / 60 % 60);//计算剩余的分钟 <br>
+        var seconds = parseInt(leftTime / 1000 % 60);//计算剩余的秒数 <br>
+        </p>
+    `);
+    $("#39").html(`
+        <h2>39.说出至少7个数学方法并说明参数和用法？</h2>
+        <p>答:最大(max)<br>最小(min)<br>随机数(roudom)<br>四舍五入取整(round)<br>向下取整(floor)<br>向上取整(ceil)<br>指数(pow)<br>绝对值(abs)<br></p>
+    `);
+    $("#40").html(`
+        <h2> 40.post和get请求的区别？如何选择？</h2>
+        <p>答:<b>区别:</b><br>
+        (1）post更安全（不会作为url的一部分，不会被缓存、保存在服务器日志、以及浏览器浏览记录中）<br>
+			（2）post发送的数据更大（get有url长度限制）<br>
+			3）post能发送更多的数据类型（get只能发送ASCII字符）<br>
+			（4）post比get慢 <br>
+			（5）post用于修改和写入数据，get一般用于搜索排序和筛选之类的操作（淘宝，支付宝的搜索查询都是get提交），目的是资源的获取，读取数据
+
+        </p>
+
+         <p><b>何时使用Get请求,何时使用Post请求</b><br>
+        Get请求与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用。<br>
+			然而，在以下情况中，请使用 POST 请求：
+
+无法使用缓存文件（更新服务器上的文件或数据库）
+向服务器发送大量数据（POST 没有数据量限制）
+发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠<br>
+
+
+        </p>
+
+
+
+
+    `);
+    $("#41").html(`
+        <h2>41.触摸事件？</h2>
+        <p>答:<b>手指在触摸设备屏幕是发生的事件</b><br>
+        1）ontouchstart 手指触摸屏幕立即触发此事件<br>
+			2）ontouchmove 手指在屏幕上移动的时候触发此事件<br>
+			3）ontouchend 手指离开屏幕会触发此事件<br>
+			4）touchcancel 出现更高级事件阻止touch事件的触发，一般用于移动端的游戏开发，有过程中来了电话了，在此事件内做游戏进度的保存
+			touches[0];
+        </p>
+    `);
+    $("#42").html(`
+        <h2>42.mouseover和mouseenter的区别？</h2>
+        <p>答: <b>mouseover(鼠标覆盖)</b></p>
+         <p><b>mouseenter(鼠标进入):</b>mouseenter就是在想要阻止冒泡事件发生的时候使用</p>
+         <p>二者的本质区别在于,mouseenter不会冒泡,简单的说,它不会被它本身的子元素的状态影响到.但是mouseover就会被它的子元素影响到,在触发子元素的时候,mouseover会冒泡触发它的父元素.(想要阻止mouseover的冒泡事件就用mouseenter)</p>
+         <p>共同点:当二者都没有子元素时,二者的行为是一致的,但是二者内部都包含子元素时,行为就不同了.</p>
+    `);
+
+    $("#43").html(`
+        <h2>43.变量提升？</h2>
+        <p>答： <b>变量提升是:</b>那么变量提升就是变量声明会被提升到作用域的最顶上去，也就是该变量不管是在作用域的哪个地方声明的，都会提升到作作用域的最顶上去。<br>
+
+即变量可以在声明之前使用，值为undefined。</p>
+<p><b>最后的总结:</b><br>1:所有的声明都会提升到作用域的最顶上去。<br>
+
+2:同一个变量只会声明一次，其他的会被忽略掉。<br>
+
+3:函数声明的优先级高于变量申明的优先级，并且函数声明和函数定义的部分一起被提升。</p>
+    `);
+    $("#44").html(`
+        <h2> 44.常做的代码及页面优化？</h2>
+        <p>答:1.在分支判断时将尽可能概率高到放到最前面 <br>
+			2.雪碧图 <br>
+			3.懒加载（例如瀑布流） <br>
+			4.预加载<br>
+	页面运行增加到用户体验，代码优化，增加网页执行效率</p>
+    `);
+    $("#45").html(`
+        <h2>45.列举一些常做的兼容处理？</h2>
+        <p>答:事件对象，冒泡，与默认事件，滚轮事件，animation,transform</p>
+    `);
+    $("#46").html(`
+        <h2>46.上传文件到服务器？</h2>
+        <p>答:<b>1.ajax:</b></p>
+        <p><b>2.Form表单 (通过form表单到data对象在发给ajax);</b></p>
+    `);
+
+
+
+</script>
+
+</body>
+</html>
